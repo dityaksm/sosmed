@@ -32,3 +32,30 @@ Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/onlogin/{userId}', 'HomeController@getUser');
+
+
+//Status
+
+Route::get('/home/status', 'StatusController@getStatusUser');
+Route::get('/status', 'StatusController@getStatus');
+Route::get('/status/{userId}', 'StatusController@userStatus');
+
+Route::post('/status', 'StatusController@postStatus');
+
+
+//Friend
+
+Route::post('/addfriend/{userId}', 'HomeController@addFriend');
+Route::post('/endfriend/{userId}', 'HomeController@endFriend');
+
+Route::get('/friend/{userId}', 'HomeController@getFriendDetail');
+
+
+//Comment
+
+Route::get('/home/comment', 'CommentController@getCommentUser');
+
+Route::post('/comment', 'CommentController@addComment');
+
+
